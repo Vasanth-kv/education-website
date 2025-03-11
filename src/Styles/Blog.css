@@ -1,0 +1,127 @@
+.blog-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 90%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.blog-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.swiper {
+  padding-bottom: 50px;
+}
+
+.blog-slide {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.swiper-slide {
+  opacity: 0.5; /* Default opacity for non-active slides */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important; /* Full opacity for the centered blog */
+  transform: scale(1.05); /* Slightly increase size for focus */
+}
+
+/* Positioning Swiper Arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white; /* Arrow color */
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out;
+  opacity: 0; /* Initially hidden */
+}
+
+/* Center arrows vertically */
+.swiper-button-next,
+.swiper-button-prev {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Make arrows more visible on hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+/* Adjust left & right positioning */
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+/* Make sure arrows are inside the slider on smaller screens */
+@media (max-width: 768px) {
+  .swiper-button-prev {
+    left: 0px;
+  }
+  
+  .swiper-button-next {
+    right: 0px;
+  }
+}
+
+.blog-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.blog-heading {
+  font-size: 20px;
+  margin: 15px 0;
+  color: #222;
+}
+
+.blog-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.read-more:hover {
+  background: #0056b3;
+}
