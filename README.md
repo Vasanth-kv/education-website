@@ -102,5 +102,5 @@ This project is licensed under the **MIT License**.
 
 ---
 
-💡 *Made with ❤️ by [Your Name](https://github.com/Vasanth-kv)*
+💡 *Made with ❤️ by [Vasanth Kirupashankar](https://github.com/Vasanth-kv)*
 ![Thank You](https://img.shields.io/badge/Thank_You%21-❤️-red?style=for-the-badge)
