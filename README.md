@@ -2,7 +2,7 @@
 
 ![Website](https://img.shields.io/badge/Status-Active-success.svg) ![Contributions](https://img.shields.io/badge/Contributions-Welcome-blue.svg) ![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
-🌍x **A modern and interactive education website** 📚 designed to enhance online learning experiences with a user-friendly UI and powerful features.
+🌍 **A modern and interactive education website** 📚 designed to enhance online learning experiences with a user-friendly UI and powerful features.
 
 ## 🌟 Features
 - 🎨 **Responsive UI** – Optimized for all devices
