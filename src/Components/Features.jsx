@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { FaGlobe, FaUserGraduate, FaLaptopCode, FaVideo, FaCertificate, FaHeadset } from "react-icons/fa";
 
 const features = [
-  { icon: <FaGlobe />, text: "Online Testing" },
-  { icon: <FaUserGraduate />, text: "Expert Teachers" },
-  { icon: <FaLaptopCode />, text: "Flexible Learning" },
-  { icon: <FaVideo />, text: "Interactive Classes" },
-  { icon: <FaCertificate />, text: "Certified Courses" },
-  { icon: <FaHeadset />, text: "24/7 Support" },
+  { icon: <FaGlobe />, text: "Online Testing", link: "/feature/online-testing" },
+  { icon: <FaUserGraduate />, text: "Expert Teachers", link: "/feature/expert-teachers" },
+  { icon: <FaLaptopCode />, text: "Flexible Learning", link: "/feature/flexible-learning" },
+  { icon: <FaVideo />, text: "Interactive Classes", link: "/feature/interactive-classes" },
+  { icon: <FaCertificate />, text: "Certified Courses", link: "/feature/certified-courses" },
+  { icon: <FaHeadset />, text: "24/7 Support", link: "/feature/24-7-support" },
 ];
 
 const Features = () => {
@@ -25,28 +26,31 @@ const Features = () => {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 md:px-16">
-        {features.map(({ icon, text }, index) => (
-          <div 
-            key={index} 
-            className="relative flex flex-col items-center p-6 bg-gray-200 shadow-lg rounded-xl transition-all transform hover:-translate-y-1 hover:shadow-2xl border-2 border-transparent hover:border-blue-400 hover:bg-white"
-          >
-            {/* Icon with Glow Effect */}
-            <div className="text-5xl text-blue-600 bg-white shadow-md rounded-full p-4 mb-4 transition-transform transform hover:scale-110">
-              {icon}
-            </div>
-            
-            {/* Text with Animation */}
-            <p className="mt-2 text-lg font-semibold text-gray-800 transition-colors hover:text-blue-500">
-              {text}
-            </p>
+        {features.map(({ icon, text, link }, index) => (
+          <Link to={link} key={index} className="group">
+            <div 
+              className="relative flex flex-col items-center p-6 bg-gray-200 shadow-lg rounded-xl transition-all 
+                         transform hover:-translate-y-1 hover:shadow-2xl border-2 border-transparent 
+                         hover:border-blue-400 hover:bg-white cursor-pointer"
+            >
+              {/* Icon with Glow Effect */}
+              <div className="text-5xl text-blue-600 bg-white shadow-md rounded-full p-4 mb-4 transition-transform transform group-hover:scale-110">
+                {icon}
+              </div>
+              
+              {/* Text with Animation */}
+              <p className="mt-2 text-lg font-semibold text-gray-800 transition-colors group-hover:text-blue-500">
+                {text}
+              </p>
 
-            {/* Glowing Effect on Hover */}
-            <div className="absolute inset-0 opacity-0 hover:opacity-20 bg-blue-500 rounded-xl transition-all duration-300"></div>
-          </div>
+              {/* Glowing Effect on Hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-blue-500 rounded-xl transition-all duration-300"></div>
+            </div>
+          </Link>
         ))}
       </div>
     </section>
   );
 };
 
-export default Features; 
+export default Features;

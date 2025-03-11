@@ -3,47 +3,53 @@ import { Link } from "react-router-dom";
 
 const allCourses = [
   { 
+    id: "web-design", 
     title: "Web Design", 
     description: "Learn how to design stunning websites with modern UI/UX principles.", 
     teacher: "Rosie Rottman", 
     time: "3 PM", 
-    image: "src/assets/img/C1.avif" 
+    image: "/src/assets/img/C1.avif"
   },
   { 
+    id: "photography", 
     title: "Photography", 
     description: "Master the art of photography with expert guidance.", 
     teacher: "Floyd Fukuda", 
     time: "6 PM", 
-    image: "src/assets/img/C2.avif" 
+    image: "/src/assets/img/C2.avif"
   },
   { 
+    id: "digital-marketing", 
     title: "Digital Marketing", 
     description: "Discover the secrets of online marketing and brand growth.", 
     teacher: "Elena Cully", 
     time: "10 AM", 
-    image: "src/assets/img/C3.avif" 
+    image: "/src/assets/img/C3.avif"
   },
   { 
+    id: "graphic-design", 
     title: "Graphic Design", 
     description: "Unleash creativity with industry-standard tools and techniques.", 
     teacher: "Liam Peterson", 
     time: "1 PM", 
-    image: "src/assets/img/C4.avif" 
+    image: "/src/assets/img/C4.avif"
   },
   { 
+    id: "data-science", 
     title: "Data Science", 
     description: "Analyze data and build predictive models with Python.", 
     teacher: "Sophia Brown", 
     time: "4 PM", 
-    image: "src/assets/img/C5.avif" 
+    image: "/src/assets/img/C5.avif"
   },
   { 
+    id: "cyber-security", 
     title: "Cyber Security", 
     description: "Protect networks and systems from cyber threats.", 
     teacher: "David Nelson", 
     time: "5 PM", 
-    image: "src/assets/img/C6.avif" 
-  },
+    image: "/src/assets/img/C6.avif"
+  }
 ];
 
 const Courses = () => {
@@ -92,12 +98,10 @@ const Courses = () => {
               </p>
             </div>
 
-            {/* Join Now Button */}
-            <button 
-              className="mx-5 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 text-white px-6 py-2 rounded-full max-w-4xl hover:opacity-90 transition transform hover:scale-105 shadow-md">
-              <span className="absolute inset-0 bg-white opacity-10 transition-all duration-300 hover:opacity-20"></span>
+            {/* Join Now Button with Link */}
+            <Link to={`/courses/${course.id}`} className="mx-5 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 text-white px-6 py-2 rounded-full max-w-4xl hover:opacity-90 transition transform hover:scale-105 shadow-md text-center">
               Join Now
-            </button>
+            </Link>
           </div>
         ))}
       </div>

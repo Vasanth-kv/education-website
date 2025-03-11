@@ -1,6 +1,31 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef(null);
+  const [responseMessage, setResponseMessage] = useState("");
+  const [messageColor, setMessageColor] = useState("black");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setResponseMessage("Sending...");
+    setMessageColor("blue");
+
+    emailjs
+      .sendForm("service_xosok4v", "template_gp95aed", form.current, "ZfCmUnWdLYBvIX6KR")
+      .then(
+        (response) => {
+          setResponseMessage("Message Sent Successfully!");
+          setMessageColor("green");
+          form.current.reset();
+        },
+        (error) => {
+          setResponseMessage("Failed to Send Message: " + error.text);
+          setMessageColor("red");
+        }
+      );
+  };
+
   return (
     <section className="py-16 bg-gray-100">
       <h2 className="text-3xl font-bold mb-2 text-center">Contact</h2>
@@ -11,14 +36,15 @@ const Contact = () => {
           <h2 className="text-3xl font-bold mb-4 text-center">Contact Us</h2>
           <p className="text-gray-600 text-center">Have any questions? Reach out to us!</p>
           
-          <form className="mt-12">
-            <input type="text" placeholder="Your Name" className="w-full p-3 border rounded mb-4" />
-            <input type="email" placeholder="Your Email" className="w-full p-3 border rounded mb-4" />
-            <textarea placeholder="Your Message" className="w-full p-3 border rounded mb-4"></textarea>
+          <form ref={form} onSubmit={sendEmail} className="mt-12" id="contact-form">
+            <input type="text" name="user_name" placeholder="Your Name" className="w-full p-3 border rounded mb-4" required />
+            <input type="email" name="user_email" placeholder="Your Email" className="w-full p-3 border rounded mb-4" required />
+            <textarea name="message" placeholder="Your Message" className="w-full p-3 border rounded mb-4" required></textarea>
             <button type="submit" className="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600 transition">
               Send Message
             </button>
           </form>
+          <p id="response-message" style={{ color: messageColor, marginTop: "10px", textAlign: "center" }}>{responseMessage}</p>
         </div>
 
         {/* Location Map */}
@@ -27,7 +53,7 @@ const Contact = () => {
           <iframe
             className="mb-11 rounded-lg rounded-t-none shadow-md"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.768723!2d80.2701866153211!3d13.082680990774859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526609fdf5e8b1%3A0x8f5e5f0f9f9f5f5!2sChennai!5e0!3m2!1sen!2sin!4v1638782594113"
-            width="100%" height="390" allowFullScreen=""
+            width="100%" height="395" allowFullScreen=""
             loading="lazy"
           ></iframe>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "../Components/Hero";
+import About from "../Components/About";  // ✅ Import About
 import Features from "../Components/Features";
 import Courses from "../Components/Courses";
 import Teachers from "../Components/Teachers";
@@ -11,8 +12,9 @@ import Contact from "../Components/Contact";
 
 const Home = () => {
   return (
-    <div>
+    <div id="home">
       <Hero />
+      <div id="about"><About /></div>  {/* ✅ Add About section */}
       <div id="features"><Features /></div>
       <div id="courses"><Courses /></div>
       <div id="teachers"><Teachers /></div>
